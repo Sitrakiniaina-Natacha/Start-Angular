@@ -1,0 +1,25 @@
+<h3>Listes des produits dans le panier : </h3>
+
+<p>
+  <a routerLink="/shipping">Shipping Prices</a>
+</p>
+
+<div  class="cart-item" *ngFor="let product of items; index as itemId">
+  Produit-{{itemId}} : <br>
+  {{product.name}}<br>
+  {{product.price}}$
+</div>
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+  <div>
+    <label>Nom : </label>
+    <input type="text" formControlName="name">
+  </div>
+  <div>
+    <label>Adresse :</label>
+    <input type="text" formControlName="address">
+  </div>
+  <button class="button" type="submit">Achat</button>
+
+</form>
